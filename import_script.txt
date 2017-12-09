@@ -1,6 +1,6 @@
 1.
 
-// Include Style Sheet Function
+// Include Script Function
 include get_template_directory() . '/includes/front/enqueue.php';
 
 -----------------------------------------------------------------
@@ -16,9 +16,11 @@ add_action( 'wp_enqueue_scripts' , 'enqueue_styles' );
 
 // Create enqueue_styles Functions
 function enqueue_styles(){
-	// Register Style Sheets
-	wp_register_style( 'styles', get_template_directory_uri()."/style.css" );
 
-	// Enqueue Style Sheet
-	wp_enqueue_style( 'styles' );
+	// Register Script
+	wp_register_script( 'scripts', get_template_directory_uri()."/scripts/script.js" );
+
+	// Enqueue Script
+	wp_enqueue_script( 'scripts' );
+
 }
