@@ -1,0 +1,17 @@
+//Hook Sidebar
+
+add_action( 'widgets_init', 'initilize_widget' );
+
+
+---------------------------------------------------------------------------------------------
+
+// Function
+
+function initilize_widget(){
+	register_sidebar(array(
+		'name' => __( 'Sidebar', 'sidebar-1' ),
+        'id' => 'main-sidebar',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	));
+}
