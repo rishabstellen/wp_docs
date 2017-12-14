@@ -23,6 +23,7 @@ function our_solutions(){
     'capability_type' => 'post',
     'has_archive' => true, 
     'hierarchical' => false,
+    'menu_icon'           => 'dashicons-cart',
     'menu_position' => null,
     'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
   ); 
