@@ -1,6 +1,6 @@
 <?php
 
-// Style Sheets
+// Import Style Sheets
 function import_styles(){
 	
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -11,7 +11,7 @@ function import_styles(){
 
 }
 
-// Scripts
+// Import Scripts
 function import_scripts(){
 	
 	wp_enqueue_script( 'jquery-3.2.1.min', get_stylesheet_directory_uri() . '/js/jquery-3.2.1.min.js' );
