@@ -1,0 +1,55 @@
+File URL:	framework/theme-options/admin/functions/function-options.php
+
+/*
+ *	Headings
+ */
+
+//Top Header
+$of_options[] = array( 
+	'name' => esc_html__('Top Header', 'composer' ),
+	'type' => 'heading',
+	'group' => 'top_header'
+);
+
+// Heading
+$of_options[] = array( 	"name" 		=> esc_html__("Header Options", 'composer' ),
+						"type" 		=> "heading"
+				);
+
+
+//General Settings
+$of_options[] = array( "name" => esc_html__("General", 'composer' ),
+					"type" => "heading");
+
+//Header Builder
+$of_options[] = array( 	"name" 		=> esc_html__("Header Builder", 'composer' ),
+						"type" 		=> "heading"
+				);
+
+//Login/Registration
+$of_options[] = array( "name" => esc_html__("Login/Registration", 'composer' ),
+					"type" => "heading");
+
+//Single Portfolio Settings
+$of_options[] = array( 	"name" 		=> esc_html__("Portfolio", 'composer' ),
+						"type" 		=> "heading"
+				);
+
+//Portfolio Category Page Settings
+$of_options[] = array( 
+	"name" 		=> esc_html__("Portfolio Category", 'composer' ),
+	"type" 		=> "heading"
+);
+
+
+// Block
+$of_options[] = array( "name" => esc_html__("Block", 'composer' ),
+					"type" => "heading"
+				);
+
+
+//Blog Settings
+$of_options[] = array( 	"name" 		=> esc_html__("Blog", 'composer' ),
+						"type" 		=> "heading"
+				);
+
