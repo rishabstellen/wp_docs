@@ -1,5 +1,6 @@
 // Add Hook
 add_action( 'add_meta_boxes', 'our_solutions_fields' );
+add_action( 'save_post', 'our_solutions_fields_save' );
 
 // Function for Register Field
 function our_solutions_fields(){

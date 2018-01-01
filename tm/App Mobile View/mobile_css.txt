@@ -1,0 +1,22 @@
+include "includes/mobile_css.php";
+
+// Add it to Function File
+
+//Mobile Css
+$user_info = get_userdata( get_current_user_id() );
+if( in_array('editor', $user_info->roles) )
+    add_action('admin_head', 'my_custom_fonts');
+
+
+function my_custom_fonts() {
+  echo '
+  
+  <style>
+    body, td, textarea, input, select {
+      font-family: "Lucida Grande";
+      font-size: 12px;
+    } 
+  </style>
+
+  ';
+} 
