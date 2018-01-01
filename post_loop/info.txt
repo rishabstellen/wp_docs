@@ -1,0 +1,99 @@
+// Include
+include "includes/post_fields.php";
+
+// Action Hook
+add_action( 'add_meta_boxes', 'cm_pf_post_loop' );
+add_action( 'save_post', 'cm_pf_post_loop_save' );
+
+==================================================
+
+function cm_pf_post_loop(){
+  global $post;
+
+  if(!empty($post))
+  {
+    if(get_page_template_slug() == 'post_loop.php' )
+    {
+      add_meta_box(
+        'cm_pf_post_loop',       // ID
+        'Post Loop',            // Title
+        'cm_pf_post_loop_html'  // Callback Func
+      );
+    }
+
+  }
+}
+
+function cm_pf_post_loop_html( $post ){ ?>
+
+  <?php
+    // Get Already Save Value
+    $post_loop = get_post_meta( $post->ID, 'post_loop' , true);
+    $search_keyword = get_post_meta( $post->ID, 'search_keyword' , true);
+  ?>
+
+  <table>
+    <tr>
+      <td>
+        <label for="post_loop">Post Type</label>
+      </td>
+      <td>
+        <?php $post_types = get_post_types(); ?>
+
+        <select name="post_loop">
+          <?php foreach ($post_types as $type) { ?>
+          
+            <?php $selected = ($type == $post_loop) ? " selected" : ''; ?>
+            <option value="<?php echo $type; ?>"<?php echo $selected; ?>><?php echo $type; ?></option>
+
+          <?php } ?>
+        </select>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Search Keywords</td>
+      <td>
+        <input type="text" name="search_keyword" value="<?php echo $search_keyword; ?>">
+      </td>
+      <td>
+        Add Search Keywords Seperated By <strong>,</strong>
+      </td>
+    </tr>
+  </table>
+
+  <?php 
+}
+
+
+function cm_pf_post_loop_save( $post_id ){
+
+  if ( isset($_POST['post_loop']))
+    update_post_meta($post_id, 'post_loop', $_POST['post_loop']);
+
+  if ( isset($_POST['search_keyword']))
+    update_post_meta($post_id, 'search_keyword', $_POST['search_keyword']);
+
+}
+
+
+function posts_where_condition_search( $where ){
+
+    $search_string = 'combined';
+
+    if( isset( $_POST['search']) && !empty($_POST['search']) )
+    $search_string = $_POST['search'];
+
+    if( empty($search_string) )
+    return $where;
+    // add your multiple condition here and write your custom filter
+    global $post;
+    $search_keyword = get_post_meta( $post->ID, 'search_keyword' , true);
+    $search_keyword = preg_replace("/[ ]*,[ ]*/", '|', $search_keyword);
+
+    $where .= " AND (((wp_posts.post_title REGEXP '$search_keyword') OR (wp_posts.post_content LIKE '%$search_keyword%'))) ";
+    //$where .= " AND (((wp_posts.post_title LIKE '%$search_string%') OR (wp_posts.post_content LIKE '%$search_string%'))) ";
+    //$where .= " AND (((wp_posts.post_title LIKE '%$search_string%') OR (wp_posts.post_content LIKE '%$search_string%'))) ";
+
+    return $where;
+}
