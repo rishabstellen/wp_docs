@@ -15,36 +15,77 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 @import "css/reset.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
 
 /* General Settings */
 .left{ float: left; }
 .right{ float: right; }
 .clear{ clear: both; }
+a,h1,h2,h3,h4,h5,h6{ font-family: 'Montserrat', sans-serif; }
+a:hover{ text-decoration: none; opacity: .8; }
 
 /* Top Bar */
-#top-bar{	background: #e7e7e7;	}
+#top-bar{ margin: 12px 0; font-size: 15px; }
 #top-bar .social_links li{ display: inline-block; }
 #top-bar_menu li{ float: left; }
+#top-bar li a,.main_menu_container a{ color: #000; text-transform: uppercase; padding: 6px 0; margin-right: 12px; }
+#menu-social-menu li a i{ font-size: 16px; margin-top: 2px; }
+#top-bar_menu{ margin-top: 3px; }
 
 /* Logo */
 #logo{ display: inline-block; }
+#logo a:hover{ opacity: 1; }
 
 /* Header */
 header .extra_info{ float: right; }
 header .extra_info li{ list-style: none; }
+header{
+	background: #eaa52e; /* Old browsers */
+	background: -moz-linear-gradient(left, #eaa52e 0%, #f0c144 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #eaa52e 0%,#f0c144 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #eaa52e 0%,#f0c144 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaa52e', endColorstr='#f0c144',GradientType=1 ); /* IE6-9 */
+}
+header #logo{ margin: 16px 0 12px 0; }
+header a{ color: #000; }
+header a:hover{ opacity: .8; color: #000;	 }
 
-/* Header Slide */
+#menu-header-extra li{ border: none; margin-top: 34px }
+.extra_info li{	display: inline-block; }
+.extra_info .widget{ padding-bottom: 0px; }
+.extra_info .widget li a{ font-size: 20px; padding: 16px 0px; margin-left: 24px; box-shadow: none; }
+.extra_info .widget li a:hover{ box-shadow: none; }
+.extra_info .widget li svg{ margin-right: 6px; }
+
 
 /* Main Navigation */
 #main_menu li{ display: inline-block; }
+.main_menu_container{ border-bottom: 1px solid #cecece; padding: 20px 0px; }
 
 /* Mobile Navigation */
 .mm-panels{ display: none; }
+.mob_burger_icon a{
+	font-size: 28px;
+    float: left;
+    padding: 30px 0px;
+    margin-right: 14px;
+    font-weight: 700;
+}
+
+/* Content */
+.content_area{ padding: 0; }
 
 /* Footer */
 
-
 /* Responsive */
+@media only screen and (min-width: 768px) {
+    .mob_burger_icon{ display: none; }
+}
+@media only screen and (max-width: 990px) {
+    .extra_info{ display: none; }
+}
 @media only screen and (max-width: 768px) {
     #sidebar{ display: none; }
+    #logo img{ max-height: 56px; }
+    #top-bar,.main_menu_container{ display: none; }
 }

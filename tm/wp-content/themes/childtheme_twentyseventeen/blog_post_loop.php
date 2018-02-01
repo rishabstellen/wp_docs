@@ -14,7 +14,7 @@
 	wp_reset_query();
 ?>
 
-<div class="container">
+<div class="container content_area">
 	<div class="col-md-9">
 		<?php
 

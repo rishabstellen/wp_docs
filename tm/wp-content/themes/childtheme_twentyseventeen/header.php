@@ -12,8 +12,10 @@
 
 
 	<div id="top-bar">
-		<?php get_template_part( 'template-parts/top', 'bar' ); ?>
-		<span class="clear"></span>
+		<div class="container">
+			<?php get_template_part( 'template-parts/top', 'bar' ); ?>
+			<span class="clear"></span>
+		</div>
 	</div>
 
 	<div class="content">
@@ -28,7 +30,7 @@
 
 		<header>
 			
-			<div id="logo_container">
+			<div id="logo_container" class="container">
 
 				<div class="mob_burger_icon">
 					<a href="#mobile_nav"><i class="fa fa-bars"></i></a>
@@ -44,14 +46,19 @@
 				<span class="clear"></span>
 			</div><!-- logo container -->
 
-			<div id="primary-manu">
-				<?php wp_nav_menu( array(
-					'theme_location' => 'top',
-					'menu_id'        => 'main_menu',
-				) ); ?>
-			</div><!-- primary menu -->
 			<span class="clear"></span>
 		</header>
+
+		<div class="main_menu_container">
+			<div class="container">
+				<div id="primary-manu">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'top',
+						'menu_id'        => 'main_menu',
+					) ); ?>
+				</div><!-- primary menu -->
+			</div>
+		</div>
 
 		<div class="popular-post">
 			<?php //get_template_part( 'template-parts/header', 'post' ); ?>
